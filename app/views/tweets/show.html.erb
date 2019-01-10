@@ -24,8 +24,9 @@
   <div class="container">
     <!-- ここからフォーム -->
     <% if current_user %>
-      <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
-        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+    <!-- 非同期通信事前にクラス名追加 -->
+      <%= form_tag("/tweets/#{@tweet.id}/comments",  method: :post,  id: "new_comment" ) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2" class="textbox"></textarea>
         <input type="submit" value="SENT">
       <% end %>
     <% end %>
